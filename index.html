@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css">
+  <title>Vue Basic</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- Input Form -->
+    <h2>Input Form</h2>
+    <div class="input-group">
+      {{titleMsg}}
+      <input type="text" v-model="text" v-on:keyup.enter="printText">
+      <br />
+      <button v-on:click="printText">reset</button>
+      PrintInput: {{text}}
+      <br />
+    </div>
+    <hr>
+
+    <!-- Button Click Event -->
+    <div>
+      <h2>Button Click Event</h2>
+      <h4>{{ eventMsg }}</h4>
+      <button type="button" @click="clickButton">click</button>
+    </div>
+    <hr>
+
+    <!-- Table -->
+    <div>
+      <h2>Table</h2>
+      <table>
+        <!-- header -->
+        <thead>
+          <tr>
+            <th v-for="(value, key) in taskColumns">
+              {{ value }}
+            </th>
+          </tr>
+        </thead>
+        <!-- data -->
+        <tbody>
+          <tr v-for="task in tasks">
+            <td v-for="(value, key) in taskColumns">
+              {{ task[key] }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr>
+
+    <!-- Image -->
+    <div>
+      <h2>Image</h2>
+      <img v-bind:src.literal="imageSrc">
+    </div>
+    <hr>
+
+    <!-- Select -->
+    <div>
+      <h2>Select</h2>
+      <select>
+        <option v-for="(item, index) in selectOptions" :value="item.value">{{ item.name }}</option>
+      </select>
+    </div>
+    <hr>
+
+    <!-- Counter -->
+    <div>
+      <h2>Counter</h2>
+      <button type="button" @click="counter">Count</button>
+      {{clickCount}}
+    </div>
+    <hr>
+
+    <!-- Todo -->
+    <div>
+      <h2>[Todo]</h2>
+      <form>
+        <input type="text" v-model="newTodo">
+        <button type="button" @click="addTodo">Add</button>
+      </form>
+      <ul>
+        <li v-for="todo in todos">
+          {{todo}}
+          <button type="button" @click="deleteTodo(todo)">Del</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Search -->
+    <div>
+      <h2>Search</h2>
+      <input type="text" v-model="searchQuery">
+      <ul>
+        <li v-for="res in searchResult">
+          {{res.id}}: {{res.description}}
+        </li>
+      </ul>
+      <div v-show="searchResult.length==0">
+        no result
+      </div>
+
+    </div>
+
+    <div>
+      <h2>Component</h2>
+      <span>goto <a href="./component.html">page</a></span>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="index.js " charset="UTF-8"></script>
+</body>
+
+</html>
