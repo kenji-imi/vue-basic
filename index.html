@@ -20,6 +20,14 @@
       PrintInput: {{text}}
       <br />
     </div>
+
+    <div class="input-group">
+      文字数<br />
+      <input v-model.trim="inputMsg" maxlength="20" placeholder="入力してください">
+      <p>{{ inputMsg.length }}/20</p>
+      <textarea v-model.trim="textAreaMsg" maxlength="40" placeholder="40文字以内で入力してください"></textarea>
+      <p>{{ textAreaMsg.length }}/40</p>
+    </div>
     <hr>
 
     <!-- Button Click Event -->

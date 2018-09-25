@@ -2,6 +2,8 @@ var data = {
   // input form
   titleMsg: "Hello",
   text: "",
+  inputMsg: "",
+  textAreaMsg: "",
 
   // button click event
   eventMsg: "NO Click",
