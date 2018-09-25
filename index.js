@@ -72,8 +72,8 @@ const app = new Vue({
   data: data, // データオブジェクト
   methods: {
     // input form
-    printText: function() {
-      this.text = "reset";
+    resetText: function() {
+      this.text = "";
     },
 
     // button click event

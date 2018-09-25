@@ -14,10 +14,10 @@
     <h2>Input Form</h2>
     <div class="input-group">
       {{titleMsg}}
-      <input type="text" v-model="text" v-on:keyup.enter="printText">
+      <input type="text" v-model="text" placeholder="入力してください" @keyup.enter="resetText">
       <br />
-      <button v-on:click="printText">reset</button>
-      PrintInput: {{text}}
+      <button @click="resetText">reset</button>
+      input: {{text}}
       <br />
     </div>
 
